@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/action_create"
+        android:title="ADD_ITEM"
+        android:icon="@drawable/ic_action_update"
+        app:showAsAction="always|withText"
+        android:visible="true" />
+    <item
+        android:id="@+id/action_update"
+        android:title="@string/fragment_master_action_create"
+        android:icon="@drawable/ic_action_password"
+        app:showAsAction="always" />
+
+
+</menu>

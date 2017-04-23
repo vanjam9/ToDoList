@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">ToDoList</string>
+    <string name="fragment_detal_action_delete" />
+    <string name="fragment_master_action_create" />
+    <string name="fragment_detal_action_update" />
+    <string name="activity_main_toolbar_title" />
+    <string name="mName" />
+    <string name="Ammount" />
+    <string name="ADD_ITEM" >add</string>
+    <string name="add" />
+</resources>
