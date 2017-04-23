@@ -24,6 +24,8 @@ public class ListI {
     @DatabaseField(columnName = FIELD_LIST_NAME)
     private String Name;
 
+
+
     @ForeignCollectionField(columnName = ListI.TABLE_ITEM_ITEMS, eager = true)
     private ForeignCollection<Item> items;
 

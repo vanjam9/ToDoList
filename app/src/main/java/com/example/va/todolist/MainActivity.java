@@ -17,6 +17,7 @@ import android.widget.ListAdapter;
 import android.widget.ListView;
 
 import com.example.va.todolist.db.DatabaseHelper;
+import com.example.va.todolist.db.model.Item;
 import com.example.va.todolist.db.model.ListI;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
 
@@ -113,6 +114,11 @@ public class MainActivity extends AppCompatActivity {
         });
 
         dialog.show();}
+
+
+
+
+
 
 
     @Override

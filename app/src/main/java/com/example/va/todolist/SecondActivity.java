@@ -118,6 +118,10 @@ public class SecondActivity extends AppCompatActivity{
     }
 
 
+
+
+
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         getMenuInflater().inflate(R.menu.menu, menu);
@@ -225,28 +229,5 @@ public class SecondActivity extends AppCompatActivity{
             databaseHelper = null;
         }
     }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 }
