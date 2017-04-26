@@ -70,6 +70,8 @@ public class SecondActivity extends AppCompatActivity{
             List<Item> list = getDatabaseHelper().getItemDao().queryBuilder()
                     .where()
                     .eq(Item.FIELD_NAME_USER, l.getId())
+
+
                     .query();
 
             ListAdapter adapter = new ArrayAdapter<>(this, R.layout.list_item, list);

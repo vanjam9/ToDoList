@@ -37,7 +37,7 @@ public class ThirdActivity extends AppCompatActivity{
     private Item m;
     private TextView name;
     private TextView ammount;
-
+    private ListI l;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -107,6 +107,10 @@ public class ThirdActivity extends AppCompatActivity{
 
 
     }
+
+
+
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {

@@ -7,7 +7,7 @@
 
         android:id="@+id/action_update"
         android:title="@string/ADD_ITEM"
-        android:icon="@drawable/ic_action_update"
+        android:icon="@drawable/ic_action_create"
         app:showAsAction="always"  />
 
 

@@ -15,6 +15,9 @@ public class ListI {
     public static final String TABLE_NAME_USERS = "list";
     public static final String FIELD_NAME_ID ="id" ;
     public static final String FIELD_LIST_NAME ="nameList" ;
+    public static final String FIELD_LIST_COMPLETE = "Complete";
+
+
     public static final String TABLE_ITEM_ITEMS = "item";
 
 
@@ -24,7 +27,8 @@ public class ListI {
     @DatabaseField(columnName = FIELD_LIST_NAME)
     private String Name;
 
-
+    @DatabaseField(columnName = FIELD_LIST_COMPLETE)
+    private String Complete;
 
     @ForeignCollectionField(columnName = ListI.TABLE_ITEM_ITEMS, eager = true)
     private ForeignCollection<Item> items;
@@ -58,9 +62,20 @@ public class ListI {
         this.items = items;
     }
 
+    public String getComplete() {
+        return Complete;
+    }
+
+    public void setComplete(String complete) {
+        Complete = complete;
+    }
+
     @Override
     public String toString() {
-        return "ListI :" +
-                "Name=" + Name ;
+        return "ListI " +
+
+                " Name=" + Name    +
+                ",  Complete= " + Complete
+        ;
     }
 }

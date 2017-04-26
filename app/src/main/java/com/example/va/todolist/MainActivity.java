@@ -20,8 +20,10 @@ import com.example.va.todolist.db.DatabaseHelper;
 import com.example.va.todolist.db.model.Item;
 import com.example.va.todolist.db.model.ListI;
 import com.j256.ormlite.android.apptools.OpenHelperManager;
+import com.j256.ormlite.stmt.QueryBuilder;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
@@ -30,6 +32,23 @@ public class MainActivity extends AppCompatActivity {
 
     public static String key = "ACT";
     private DatabaseHelper databaseHelper;
+    private List<ListI> list;
+
+    public enum Completed {
+        COMPLETED("Completed"),
+        NOT_COMPLETED("Not completed");
+
+        private String text;
+
+        Completed(final String text) {
+            this.text = text;
+        }
+
+        @Override
+        public String toString() {
+            return text;
+        }
+    }
 
 
 
@@ -50,13 +69,14 @@ public class MainActivity extends AppCompatActivity {
 
         final ListView listView = (ListView) findViewById(R.id.lista_name);
 
-        try {
-            List<ListI> list = getDatabaseHelper().getListIDao().queryForAll();
+       try {
+            list = getDatabaseHelper().getListIDao().queryForAll();
 
             ListAdapter adapter = new ArrayAdapter<>(MainActivity.this, R.layout.list_item, list);
             listView.setAdapter(adapter);
 
-            listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+
+           listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
                 public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                     ListI p = (ListI) listView.getItemAtPosition(position);
 
@@ -79,10 +99,11 @@ public class MainActivity extends AppCompatActivity {
         dialog.setContentView(R.layout.dialog_list_layout);
         Button add_list = (Button) dialog.findViewById(R.id.add_list);
 
+        completedMainList();
+
         add_list.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-
 
 
 
@@ -90,7 +111,7 @@ public class MainActivity extends AppCompatActivity {
                 ListI l = new ListI();
 
                 l.setName(name.getText().toString());
-
+                l.setComplete(Completed.NOT_COMPLETED.toString());
 
                 try {
                     getDatabaseHelper().getListIDao().create(l);
@@ -115,8 +136,18 @@ public class MainActivity extends AppCompatActivity {
 
         dialog.show();}
 
+ /*   try {                                                                   da li ovako moze ?????
 
+      QueryBuilder<Item, Integer> orderQb = getDatabaseHelper.getItemDao.queryBuilder();
+        orderQb.where().eg("purchased", true);
+        QueryBuilder<ListI, Integer> accountQb = ListIDao.queryBuilder();
+// join with the order query
+        List<ListI> listView = accountQb.leftJoin(orderQb).query();
+    } catch (SQLException e) {
+        e.printStackTrace();
+    }
 
+*/
 
 
 
@@ -196,4 +227,26 @@ public class MainActivity extends AppCompatActivity {
             databaseHelper = null;
         }
     }
+
+    private void completedMainList() {
+        for (ListI main : list) {
+            for (Item items : main.getItems()) {
+                if (!items.isPurchased()) {
+                    main.setComplete(Completed.NOT_COMPLETED.toString());
+                    break;
+                } else {
+                    main.setComplete(Completed.COMPLETED.toString());
+                    break;
+                }
+            }
+            try {
+                getDatabaseHelper().getListIDao().update(main);
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+
+
 }

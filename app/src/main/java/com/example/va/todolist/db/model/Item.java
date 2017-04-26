@@ -105,7 +105,7 @@ public class Item {
         return "Item  :" +
 
                 " Name= " + Name  +
-                " Ammount= " + Ammount +
+                ", Ammount= " + Ammount +
                 " purchased= " + purchased ;
     }
 }

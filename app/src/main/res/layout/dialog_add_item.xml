@@ -17,7 +17,8 @@
         <EditText
             android:id="@+id/item_name"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:fontFamily="casual" />
     </LinearLayout>
         <LinearLayout
             android:layout_width="444dp"
@@ -34,7 +35,8 @@
                 android:id="@+id/Ammount"
                 android:inputType="number"
                 android:layout_width="match_parent"
-                android:layout_height="match_parent" />
+                android:layout_height="match_parent"
+                android:fontFamily="casual" />
 
 
 

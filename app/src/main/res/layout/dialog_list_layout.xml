@@ -17,7 +17,8 @@
         <EditText
             android:id="@+id/Sname"
             android:layout_width="match_parent"
-            android:layout_height="match_parent" />
+            android:layout_height="match_parent"
+            android:fontFamily="casual" />
 
         <Button
             android:id="@+id/add_list"
